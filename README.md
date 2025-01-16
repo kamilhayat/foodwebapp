@@ -29,3 +29,4 @@ A frontend web application that mimics some features of Swiggy, built using **Re
    ```bash
    git clone https://github.com/your-username/swiggy-clone.git
    cd swiggy-clone
+
