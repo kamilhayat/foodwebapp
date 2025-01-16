@@ -5,7 +5,7 @@ const ItemList = ({ items, isOpen, setIsOpen }) => {
     const dispatch = useDispatch()
     const handleAddItem = (item) => {
         dispatch(Addtocart(item))
-        // alert("Item added to cart")
+        alert("Item added to cart")
     }
     return (
         

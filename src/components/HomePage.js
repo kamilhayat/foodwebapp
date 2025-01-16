@@ -7,10 +7,9 @@ const HomePage = () => {
     const [restraDetails, setRestraDetails] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-    const [loading, setLoading] = useState(true); // Track loading state
+    const [loading, setLoading] = useState(true); 
     const onlineStatus=  useOnlineStatus()
 
-    // const API_URl = "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=28.5545573&lng=77.2969011&carousel=true&third_party_vendor=1"
 
     useEffect(() => {
         fetching();
@@ -36,11 +35,11 @@ const HomePage = () => {
 
     };
     if(onlineStatus === false){
-        return <h1>You are offline. Please check your internet connection.</h1> // Show error message when offline
+        return <h1>You are offline. Please check your internet connection.</h1> 
     }
 
     if (loading) {
-        return <h1>Loading...</h1>; // Show loading state while data is being fetched
+        return <h1>Loading...</h1>; 
     }
 
 

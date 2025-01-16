@@ -5,29 +5,27 @@ import ResCategories from './ResCategories';
 
 const RestaurantMenu = () => {
     const { resid } = useParams();
-    const { resInfo, loading } = useRestraMenu(resid); // Use custom hook
+    const { resInfo, loading } = useRestraMenu(resid); 
     const [isOpen, setIsOpen] = useState(false);
 
 
     if (loading) {
-        return <h1>Loading...</h1>; // Show loading state
+        return <h1>Loading...</h1>; 
     }
 
     const info = resInfo?.cards?.[2]?.card?.card?.info;
 
     if (!info) {
-        return <h1>Data not available</h1>; // Fallback if info is undefined
+        return <h1>Data not available</h1>; 
     }
 
     const { name, areaName, costForTwoMessage, cuisines, avgRating, sla } = info;
 
-    // Safely access itemCards
     const itemCards = resInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card?.itemCards || [];
 
     const categories = resInfo?.cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((items) =>
         items?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     )
-    // console.log("all cate",categories)
     if (itemCards.length === 0) {
         return <h1 className='mt-32'>No menu items available for this restaurant.</h1>;
     }
